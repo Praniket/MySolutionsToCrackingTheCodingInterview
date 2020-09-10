@@ -1,0 +1,21 @@
+#Program to check if all characters in a string are unique
+import unittest
+
+test_string = "abcda"
+
+def unique(string):
+    if(len(string)>128):
+        return False
+    
+    char_sets = [False for x in range(128)]
+    for every_char in string:
+        ascii_code = ord(every_char)
+        if(char_sets[ascii_code]==False):
+            char_sets[ascii_code]=True
+        else:
+            return False
+    
+    return True        
+
+test_result = unique(test_string)
+print(test_result)
