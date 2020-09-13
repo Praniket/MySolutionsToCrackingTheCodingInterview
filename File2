@@ -1,0 +1,28 @@
+#Program to check permutation of two strings
+
+from collections import Counter
+
+test_string1 = "abcd"
+test_string2 = "bbad"
+
+def checkPermute(string1, string2):
+    
+    if(len(string1)!=len(string2)):
+        return False
+    
+    counter = Counter()
+    for every_char in string1:
+        counter[every_char] += 1
+    
+    for every_char in string2:
+        if(counter[every_char]==0):
+            return False
+        counter[every_char] -= 1
+        
+    return True
+
+test_check = checkPermute(test_string1 , test_string2)
+if(test_check==True):
+    print("Strings Permute")
+else:
+    print("Strings doesn't Permute")
